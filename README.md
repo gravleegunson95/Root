@@ -1,0 +1,2 @@
+# Root
+Func __WinAPI_RegConvHKey2($vKey, ByRef $sSubKey, ByRef $iAccess)     Local $hRootKey = $vKey, $sSubKeyTemp = "", $bX64 = False     If IsString($vKey) Then         Local $sRoot = $vKey         Local $n = StringInStr($vKey, "\")         If $n Then             $sRoot = StringLeft($vKey, $n - 1)             $sSubKeyTemp = StringTrimLeft($vKey, $n)         EndIf          ; Check if X64 requested         $sRoot = StringReplace($sRoot, "64", "")         If @extended Then $bX64 = True
